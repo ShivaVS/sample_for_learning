@@ -1,4 +1,11 @@
 SampleApp::Application.routes.draw do
+  resources :homes
+  match "/auth/:provider/callback" => "sessions#create"
+  
+  root :to => 'homes#index'
+
+  devise_for :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
